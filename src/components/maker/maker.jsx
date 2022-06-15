@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../footer/footer';
 import Header from '../header/header';
+import styles from './maker.module.css';
+import Editor from '../editor/editor';
+import Preview from '../preview/preview';
 
 const Maker = ({ authService }) => {
   const { state } = useLocation();
@@ -18,8 +21,12 @@ const Maker = ({ authService }) => {
     });
   });
   return (
-    <section className="style.maker">
+    <section className={styles.maker}>
       <Header onLogout={onLogout} />
+      <div className={styles.container}>
+        <Editor />
+        <Preview />
+      </div>
       <Footer />
     </section>
   );
